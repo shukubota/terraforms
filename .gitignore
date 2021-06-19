@@ -1,1 +1,4 @@
 .idea
+sample-network/terraform.tfstate
+sample-network/terraform.tfstate.backup
+*.tfstate
