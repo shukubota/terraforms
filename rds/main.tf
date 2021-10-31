@@ -2,18 +2,24 @@ provider "aws" {
   region = "ap-northeast-1"
 }
 
-variable "username" {}
-variable "password" {}
+variable "username" {
+  type = string
+  default = "speaking"
+}
+variable "password" {
+  type = string
+  default = "speakingpass"
+}
 
 # RDS
 resource "aws_db_instance" "default" {
   allocated_storage    = 10
   engine               = "postgres"
-  engine_version       = "9.2"
-  instance_class       = "db.t2.micro"
-  name                 = "speaking-biz"
+  identifier = "speakingCamp"
+  engine_version = "12.7"
+  instance_class       = "db.t3.micro"
+  name                 = "speakingCamp"
   username             = var.username
   password             = var.password
-  parameter_group_name = "default.postgres9.2"
   skip_final_snapshot  = true
 }
